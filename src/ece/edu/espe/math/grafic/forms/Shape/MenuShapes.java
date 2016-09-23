@@ -5,6 +5,7 @@
  */
 package ece.edu.espe.math.grafic.forms.Shape;
 
+import converter.measures.Converter_Measures;
 import ec.edu.espe.math.geometry.shape.circumference.Circle;
 import ec.edu.espe.math.geometry.shape.circumference.Ellipse;
 import ec.edu.espe.math.geometry.shape.quadrilaterals.Parallelogram;
@@ -25,12 +26,16 @@ import javax.swing.JOptionPane;
  */
 public class MenuShapes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MenuShapes
-     */
+  public void cargaritems(){
+      for(int i=0;i<Converter_Measures.names.length;i++){
+          Centry.addItem(Converter_Measures.names[i]);
+           CExit.addItem(Converter_Measures.names[i]);
+      }
+  }
     public MenuShapes() {
         initComponents();
         panelstart(false);
+        cargaritems();
     }
 
     /**
@@ -66,6 +71,10 @@ public class MenuShapes extends javax.swing.JFrame {
         TxSdia = new java.awt.TextField();
         TxBdia = new java.awt.TextField();
         atras = new javax.swing.JButton();
+        Centry = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        CExit = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +134,10 @@ public class MenuShapes extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("Entry");
+
+        jLabel7.setText("Exit");
+
         javax.swing.GroupLayout data_entryLayout = new javax.swing.GroupLayout(data_entry);
         data_entry.setLayout(data_entryLayout);
         data_entryLayout.setHorizontalGroup(
@@ -133,49 +146,59 @@ public class MenuShapes extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(data_entryLayout.createSequentialGroup()
-                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(altura)
-                            .addComponent(base))
-                        .addGap(21, 21, 21)
-                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TXheigth, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-                            .addComponent(TXBase, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18))
                     .addGroup(data_entryLayout.createSequentialGroup()
-                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(side3)
-                            .addComponent(side2))
-                        .addGap(21, 21, 21)
                         .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txside3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txside2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(base)
+                            .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(side3)
+                                .addComponent(side2)
+                                .addComponent(altura)))
+                        .addGap(21, 21, 21)))
+                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Centry, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(TXBase, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txside3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txside2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TXheigth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(38, 38, 38)
                 .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(data_entryLayout.createSequentialGroup()
-                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(data_entryLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TxSdia, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(data_entryLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TxBdia, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Area)
                         .addGap(25, 25, 25))
                     .addGroup(data_entryLayout.createSequentialGroup()
-                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(data_entryLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(29, 29, 29)
-                                .addComponent(TxRadio2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(data_entryLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(29, 29, 29)
-                                .addComponent(txRadio1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addComponent(txRadio1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                            .addGroup(data_entryLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(29, 29, 29)
+                                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TxBdia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TxRadio2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(80, 80, 80)
                         .addComponent(Perimeter)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, data_entryLayout.createSequentialGroup()
+                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(data_entryLayout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel7)))
+                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(data_entryLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CExit, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, data_entryLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(TxSdia, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, data_entryLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(atras)
@@ -186,46 +209,52 @@ public class MenuShapes extends javax.swing.JFrame {
             .addGroup(data_entryLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Perimeter)
+                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(base)
+                            .addComponent(TXBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(data_entryLayout.createSequentialGroup()
                         .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(data_entryLayout.createSequentialGroup()
-                                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(Perimeter)
-                                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(base)
-                                            .addComponent(TXBase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(data_entryLayout.createSequentialGroup()
-                                        .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(txRadio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(11, 11, 11)))
-                                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(data_entryLayout.createSequentialGroup()
-                                        .addGap(16, 16, 16)
-                                        .addComponent(altura))
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TxRadio2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(TXheigth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(txRadio1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)))
+                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(data_entryLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(data_entryLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(Area)
-                                .addGap(4, 4, 4)
-                                .addComponent(side3))
-                            .addGroup(data_entryLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TxBdia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(side2)
-                                    .addComponent(txside2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addGap(18, 18, 18)
-                                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(TxSdia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(txside3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(TxRadio2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(altura, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TXheigth, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(data_entryLayout.createSequentialGroup()
+                            .addGap(33, 33, 33)
+                            .addComponent(Area)
+                            .addGap(4, 4, 4)
+                            .addComponent(side3))
+                        .addGroup(data_entryLayout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(TxBdia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(side2)
+                                .addComponent(txside2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4))
+                            .addGap(18, 18, 18)
+                            .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(TxSdia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, data_entryLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(txside3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(data_entryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Centry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(CExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
                 .addComponent(atras)
                 .addContainerGap())
         );
@@ -235,21 +264,23 @@ public class MenuShapes extends javax.swing.JFrame {
         panel_startLayout.setHorizontalGroup(
             panel_startLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_startLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(80, 80, 80)
                 .addComponent(ShapesSellection, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(76, 76, 76)
                 .addComponent(Start)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(data_entry, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(212, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_startLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(data_entry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panel_startLayout.setVerticalGroup(
             panel_startLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel_startLayout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addGroup(panel_startLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Start)
-                    .addComponent(ShapesSellection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(ShapesSellection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Start))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addComponent(data_entry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -259,175 +290,196 @@ public class MenuShapes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 87, Short.MAX_VALUE)
-                .addComponent(panel_start, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(panel_start, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(panel_start, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(panel_start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private Float convertUnits(Float number, int indexfinal,int indexinicial){
+        Float calculo;
+         calculo=Converter_Measures.Convert(number,indexinicial);
+         return Converter_Measures.Convertto(calculo, indexfinal);
+                
+    }
     private void PerimeterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerimeterActionPerformed
      
-       String name,parameter,value;
-        
+       String parameter,value;
+       Float Calculo;
+         int exit=CExit.getSelectedIndex();
         switch( ShapesSellection.getSelectedIndex()){
             case 0://square
                 Square Square1= new Square(Float.parseFloat(TXBase.getText()));
                 parameter=Square.class.getSimpleName();
-                value=Square1.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+               value=convertUnits(Square1.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+                printDates(GeometricConstants.PERIMETER,parameter,value,CExit.getSelectedIndex());
                 break;
             case 1://equilarero
                 EquilateralTriangle triangle= new EquilateralTriangle(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
                  parameter=EquilateralTriangle.class.getSimpleName();
-                 value=triangle.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                  value=convertUnits(triangle.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+                printDates(GeometricConstants.PERIMETER,parameter,value,exit);
                 break;
             case 2://isoceles
                  IsocelesTriangle triangleI= new IsocelesTriangle(Float.parseFloat(txside3.getText()),Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
                  parameter=IsocelesTriangle.class.getSimpleName();
-                 value=triangleI.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                  value=convertUnits(triangleI.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+                printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 3://angulo recto
                 RightAngleTriangle triangleR= new RightAngleTriangle(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
                  parameter=RightAngleTriangle.class.getSimpleName();
-                 value=triangleR.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                 value=convertUnits(triangleR.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+                printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 4://escaleno
                  ScaleneTriangle triangleE= new ScaleneTriangle(Float.parseFloat(txside2.getText()),Float.parseFloat(txside3.getText()),Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
                  parameter=ScaleneTriangle.class.getSimpleName();
-                 value=triangleE.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                value=convertUnits(triangleE.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+                printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 5://circulo
                 Circle circle1= new Circle(Float.parseFloat(txRadio1.getText()));
                  parameter=Circle.class.getSimpleName();
-                 value=circle1.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                value=convertUnits(circle1.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+               printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 6://elipse
                  Ellipse Ellipse1= new Ellipse(Float.parseFloat(txRadio1.getText()),Float.parseFloat(TxRadio2.getText()));
                  parameter=Ellipse.class.getSimpleName();
-                 value=Ellipse1.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                value=convertUnits(Ellipse1.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+              printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 7://rombo
                 Rhombus Rhombus1= new Rhombus(Float.parseFloat(TxBdia.getText()),Float.parseFloat(TxSdia.getText()));
                  parameter=Rhombus.class.getSimpleName();
-                 value=Rhombus1.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+               value=convertUnits(Rhombus1.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+               printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 8://trapezoide
                 Trapezoid Trapezoid1= new Trapezoid(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()),Float.parseFloat(txside2.getText()));
                  parameter=Trapezoid.class.getSimpleName();
-                 value=Trapezoid1.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                value=convertUnits(Trapezoid1.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+               printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 9://rectangulo
                 Rectangle Rectangle1= new Rectangle(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
                  parameter=Rectangle.class.getSimpleName();
-                 value=Rectangle1.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                value=convertUnits(Rectangle1.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+               printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             case 10://Quadrilateral
                 Parallelogram Parallelogram1= new Parallelogram(Float.parseFloat(txside2.getText()),Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
                  parameter=Parallelogram.class.getSimpleName();
-                 value=Parallelogram1.CalculatePerimeter()+"";
-                printDates(GeometricConstants.PERIMETER,parameter,value);
+                value=convertUnits(Parallelogram1.CalculatePerimeter(),CExit.getSelectedIndex(),Centry.getSelectedIndex())+"";
+               printDates(GeometricConstants.PERIMETER,parameter,value,exit);
             break;
             
             
         }
     
     }//GEN-LAST:event_PerimeterActionPerformed
-    private void printDates(String name,String parameter, String value){
-            JOptionPane.showMessageDialog(rootPane, "The "+parameter+" of "+name +" is: "+value);
+    private void printDates(String name,String parameter, String value,int exit){
+            JOptionPane.showMessageDialog(rootPane, "The "+parameter+" of "+name +" is: "+value+" "+Converter_Measures.names[exit]);
     }
     private void AreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaActionPerformed
      String name,parameter,value;
-        
+        int exit=CExit.getSelectedIndex();
         switch( ShapesSellection.getSelectedIndex()){
             case 0://square
-                Square Square1= new Square(Float.parseFloat(TXBase.getText()));
+                Square Square1= new Square(convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
                 parameter=Square.class.getSimpleName();
-                value=Square1.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                  value=Square1.CalculateArea()+"";
+               printDates(GeometricConstants.AREA,parameter,value,exit);
                 break;
             case 1://equilarero
-                EquilateralTriangle triangle= new EquilateralTriangle(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
+                EquilateralTriangle triangle= new EquilateralTriangle(convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),convertUnits(Float.parseFloat(TXheigth.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
                  parameter=EquilateralTriangle.class.getSimpleName();
-                 value=triangle.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                value=triangle.CalculateArea()+"";
+               printDates(GeometricConstants.AREA,parameter,value,exit);
                 break;
             case 2://isoceles
-                 IsocelesTriangle triangleI= new IsocelesTriangle(Float.parseFloat(txside3.getText()),Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
+                 IsocelesTriangle triangleI= new IsocelesTriangle(convertUnits(Float.parseFloat(txside3.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),convertUnits(Float.parseFloat(TXheigth.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
                  parameter=IsocelesTriangle.class.getSimpleName();
-                 value=triangleI.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                value=triangleI.CalculateArea()+"";
+              printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 3://angulo recto
-                RightAngleTriangle triangleR= new RightAngleTriangle(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
+                RightAngleTriangle triangleR= new RightAngleTriangle(convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),convertUnits(Float.parseFloat(TXheigth.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
                  parameter=RightAngleTriangle.class.getSimpleName();
-                 value=triangleR.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                value=triangleR.CalculateArea()+"";
+              printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 4://escaleno
-                 ScaleneTriangle triangleE= new ScaleneTriangle(Float.parseFloat(txside2.getText()),Float.parseFloat(txside3.getText()),Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
+                 ScaleneTriangle triangleE= new ScaleneTriangle( convertUnits(Float.parseFloat(txside2.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(txside3.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+               convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                  convertUnits(Float.parseFloat(TXheigth.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
                  parameter=ScaleneTriangle.class.getSimpleName();
-                 value=triangleE.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                value=triangleE.CalculateArea()+"";
+              printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 5://circulo
-                Circle circle1= new Circle(Float.parseFloat(txRadio1.getText()));
-                 parameter=Circle.class.getSimpleName();
-                 value=circle1.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                Circle circle1= new Circle(convertUnits(Float.parseFloat(txRadio1.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
+                
+                parameter=Circle.class.getSimpleName();
+                value=circle1.CalculateArea()+"";
+              printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 6://elipse
-                 Ellipse Ellipse1= new Ellipse(Float.parseFloat(txRadio1.getText()),Float.parseFloat(TxRadio2.getText()));
+                 Ellipse Ellipse1= new Ellipse(convertUnits(Float.parseFloat(txRadio1.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(TxRadio2.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
                  parameter=Ellipse.class.getSimpleName();
-                 value=Ellipse1.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                value=Ellipse1.CalculateArea()+"";
+               printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 7://rombo
-                Rhombus Rhombus1= new Rhombus(Float.parseFloat(TxBdia.getText()),Float.parseFloat(TxSdia.getText()));
+                Rhombus Rhombus1= new Rhombus(convertUnits(Float.parseFloat(TxBdia.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(TxSdia.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));
                  parameter=Rhombus.class.getSimpleName();
-                 value=Rhombus1.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+               value=Rhombus1.CalculateArea()+"";
+               printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 8://trapezoide
-                Trapezoid Trapezoid1= new Trapezoid(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()),Float.parseFloat(txside2.getText()));
-                 parameter=Trapezoid.class.getSimpleName();
-                 value=Trapezoid1.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                Trapezoid Trapezoid1= new Trapezoid(convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(TXheigth.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(txside2.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex())
+               );
+                 parameter=Trapezoid.class.getSimpleName();                
+               value=Trapezoid1.CalculateArea()+"";
+               printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 9://rectangulo
-                Rectangle Rectangle1= new Rectangle(Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
+                Rectangle Rectangle1= new Rectangle(convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(TXheigth.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex())
+               );
                  parameter=Rectangle.class.getSimpleName();
-                 value=Rectangle1.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                value=Rectangle1.CalculateArea()+"";
+               printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             case 10://Quadrilateral
-                Parallelogram Parallelogram1= new Parallelogram(Float.parseFloat(txside2.getText()),Float.parseFloat(TXBase.getText()),Float.parseFloat(TXheigth.getText()));
-                 parameter=Parallelogram.class.getSimpleName();
-                 value=Parallelogram1.CalculateArea()+"";
-                printDates(GeometricConstants.AREA,parameter,value);
+                Parallelogram Parallelogram1= new Parallelogram(convertUnits(Float.parseFloat(txside2.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(TXBase.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()),
+                 convertUnits(Float.parseFloat(TXheigth.getText()),CExit.getSelectedIndex(),Centry.getSelectedIndex()));               
+                parameter=Parallelogram.class.getSimpleName();
+               value=Parallelogram1.CalculateArea()+"";
+               printDates(GeometricConstants.AREA,parameter,value,exit);
             break;
             
             
@@ -552,6 +604,8 @@ Quadrilateral*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Area;
+    private javax.swing.JComboBox<String> CExit;
+    private javax.swing.JComboBox<String> Centry;
     private javax.swing.JButton Perimeter;
     private javax.swing.JComboBox<String> ShapesSellection;
     private javax.swing.JButton Start;
@@ -569,6 +623,8 @@ Quadrilateral*/
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel panel_start;
     private javax.swing.JLabel side2;
     private javax.swing.JLabel side3;
