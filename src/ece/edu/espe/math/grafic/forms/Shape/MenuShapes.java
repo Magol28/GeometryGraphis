@@ -18,6 +18,7 @@ import ec.edu.espe.math.geometry.shape.triangles.RightAngleTriangle;
 import ec.edu.espe.math.geometry.shape.triangles.ScaleneTriangle;
 import ec.edu.espe.math.geometry.shape.quadrilaterals.Rectangle;
 import ec.edu.espe.util.GeometricConstants;
+
 import javax.swing.JOptionPane;
 
 /**
